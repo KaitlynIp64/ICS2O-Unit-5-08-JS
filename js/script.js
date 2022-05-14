@@ -16,16 +16,25 @@ if (navigator.serviceWorker) {
 /**
  * Input
  */
-  const counter1 = parseInt(document.getElementById('counter1').value)
-	const counter2 = parseInt(document.getElementById('counter2').value)
-  var addedNumber = 0
-  var answer = 0
+function myButtonClicked() {
+  const counter1 = parseInt(document.getElementById("counter1").value);
+  const counter2 = parseInt(document.getElementById("counter2").value);
+  var addedNumber = 0;
+  var answer = counter1;
+  var remainder = 0
 
   if (counter1 > 0 && counter2 > 0) {
-    while (answer > counter2) {
+    while (answer >= counter2) {
       addedNumber = addedNumber + 1;
-      answer = answer + counter1;
+      answer = answer - counter2;
     }
-  }  
-  document.getElementById('answer').innerHTML = counter1 + " x " + addedNumber + " = " + answer;
+  }
+  
+  if (answer == 0) {
+  remainder = 0
+  } else if (answer != 0)
+   remainder = answer % counter2
+  
+  document.getElementById("answer").innerHTML =
+    counter1 + " ÷ " + counter2 + " = " + addedNumber + " The remainder is: " + remainder;
 }
